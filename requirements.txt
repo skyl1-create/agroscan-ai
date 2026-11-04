@@ -1,0 +1,20 @@
+# AI Crop Disease Prediction & Management - Project Dependencies
+
+# 1. Deep Learning Framework (includes Keras & MobileNetV2 architecture)
+tensorflow>=2.16.0
+
+# 2. Image Processing & Numerical Computation
+pillow>=10.0.0
+numpy>=1.26.0
+
+# 3. Data Handling & Evaluation Metrics (Confusion Matrix, Classification Report)
+pandas>=2.2.0
+scikit-learn>=1.4.0
+
+# 4. Data Visualization (Training Curves & Evaluation Plots)
+matplotlib>=3.8.0
+seaborn>=0.13.0
+
+# 5. Interactive Web Application Interface & HTTP Utilities
+streamlit>=1.35.0
+requests>=2.31.0

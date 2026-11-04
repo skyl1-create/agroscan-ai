@@ -1,0 +1,20 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Large training datasets (do not push gigabytes to GitHub)
+data/dataset/
+data/balanced_dataset/
+
+# Cloudflare binary
+cloudflared.exe
+
+# OS generated
+.DS_Store
+Thumbs.db
