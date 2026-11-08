@@ -1,5 +1,5 @@
 # AgroScan AI — Next-Gen Precision Agronomic Intelligence Platform
-# Enterprise v3.0 Production Suite
+# Modern Dark High-Tech Command Center (Cyber-Agri v4.0)
 import os
 import sys
 from pathlib import Path
@@ -35,270 +35,326 @@ from src.continual_learning import (
 # Page Configuration
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 st.set_page_config(
-    page_title="AgroScan AI &middot; Precision Crop Pathology Cloud",
+    page_title="AgroScan AI &middot; Cyber-Agronomy Command Center",
     page_icon="🌱",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# Ultra-Premium Enterprise SaaS Styling (v3.0)
+# Premium Cyber-Dark Design System (v4.0)
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 st.markdown("""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
-    /* ── Global Styles ── */
+    /* ── Dark Foundation ── */
     html, body, [class*="css"], .stApp {
-        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
-        background-color: #f8fafc !important;
-        color: #0f172a !important;
+        background-color: #080d0a !important;
+        color: #e2e8f0 !important;
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
         -webkit-font-smoothing: antialiased;
     }
 
     #MainMenu, footer, header {visibility: hidden !important;}
 
-    /* ── High-Tech Dark Sidebar ── */
+    /* ── High-Tech Cyber Sidebar ── */
     [data-testid="stSidebar"] {
-        background: linear-gradient(180deg, #020c07 0%, #061a10 50%, #030e08 100%) !important;
-        border-right: 1px solid rgba(16, 185, 129, 0.2) !important;
-        box-shadow: 4px 0 24px rgba(0, 0, 0, 0.25);
+        background: linear-gradient(180deg, #050a07 0%, #08140e 50%, #030805 100%) !important;
+        border-right: 1px solid rgba(16, 185, 129, 0.25) !important;
+        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.6) !important;
     }
     [data-testid="stSidebar"] * {
-        color: #e2e8f0 !important;
+        color: #f1f5f9 !important;
     }
     [data-testid="stSidebar"] .stRadio label {
-        font-size: 0.88rem !important;
+        font-size: 0.9rem !important;
         font-weight: 600 !important;
-        padding: 0.65rem 0.9rem !important;
+        padding: 0.7rem 1rem !important;
         border-radius: 12px !important;
-        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        border: 1px solid transparent !important;
-        margin-bottom: 0.25rem !important;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        border: 1px solid rgba(255, 255, 255, 0.05) !important;
+        background: rgba(255, 255, 255, 0.02) !important;
+        margin-bottom: 0.35rem !important;
     }
     [data-testid="stSidebar"] .stRadio label:hover {
-        background: rgba(16, 185, 129, 0.15) !important;
-        border-color: rgba(52, 211, 153, 0.4) !important;
-        transform: translateX(5px);
+        background: rgba(16, 185, 129, 0.2) !important;
+        border-color: #10b981 !important;
         color: #34d399 !important;
+        transform: translateX(6px) !important;
+        box-shadow: 0 0 15px rgba(16, 185, 129, 0.2) !important;
     }
 
-    /* ── Enterprise Top Header Bar ── */
-    .top-nav-bar {
-        background: #ffffff;
-        border: 1px solid #e2e8f0;
+    /* ── Top Cyber HUD Bar ── */
+    .hud-bar {
+        background: rgba(13, 25, 18, 0.7);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(16, 185, 129, 0.25);
         border-radius: 16px;
-        padding: 0.85rem 1.6rem;
+        padding: 0.9rem 1.8rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 1.5rem;
-        box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);
+        margin-bottom: 1.8rem;
+        box-shadow: 0 0 30px rgba(16, 185, 129, 0.08);
     }
-    .top-nav-logo {
+    .hud-logo {
         display: flex;
         align-items: center;
-        gap: 0.75rem;
-        font-size: 1.25rem;
-        font-weight: 800;
-        color: #064e3b;
-        letter-spacing: -0.03em;
-    }
-    .top-nav-status {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: 0.78rem;
+        gap: 0.8rem;
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.35rem;
         font-weight: 700;
-        color: #059669;
-        background: #ecfdf5;
-        padding: 0.35rem 0.85rem;
-        border-radius: 9999px;
-        border: 1px solid #a7f3d0;
+        color: #34d399;
+        letter-spacing: -0.02em;
     }
-    .status-dot {
+    .hud-status {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: #10b981;
+        background: rgba(16, 185, 129, 0.12);
+        padding: 0.4rem 0.95rem;
+        border-radius: 9999px;
+        border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .pulse-dot {
         width: 8px;
         height: 8px;
-        background-color: #10b981;
+        background: #10b981;
         border-radius: 50%;
-        display: inline-block;
-        box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
-        animation: pulse 2s infinite;
+        box-shadow: 0 0 10px #10b981;
+        animation: cyber-glow 1.8s infinite;
     }
-    @keyframes pulse {
-        0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
-        70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
-        100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    @keyframes cyber-glow {
+        0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+        70% { transform: scale(1.1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+        100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
     }
 
-    /* ── Hero Banner ── */
-    .saas-hero {
-        background: radial-gradient(circle at 90% 10%, rgba(52, 211, 153, 0.25) 0%, transparent 50%),
-                    linear-gradient(135deg, #022c22 0%, #064e3b 50%, #047857 100%);
-        color: #ffffff;
-        padding: 2.8rem 3rem;
-        border-radius: 20px;
-        margin-bottom: 2rem;
+    /* ── Cyber Banner ── */
+    .cyber-hero {
+        background: radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.25) 0%, transparent 60%),
+                    linear-gradient(135deg, #05160d 0%, #092617 50%, #03120a 100%);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 22px;
+        padding: 3rem 3.2rem;
+        margin-bottom: 2.2rem;
         position: relative;
         overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        box-shadow: 0 20px 40px -15px rgba(2, 44, 34, 0.35);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), inset 0 0 30px rgba(16, 185, 129, 0.1);
     }
-    .saas-hero h1 {
-        font-size: 2.2rem;
-        font-weight: 800;
-        letter-spacing: -0.035em;
-        margin: 0 0 0.6rem 0;
+    .cyber-hero h1 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 2.4rem;
+        font-weight: 700;
         color: #ffffff !important;
-        line-height: 1.2;
+        margin: 0 0 0.8rem 0;
+        letter-spacing: -0.03em;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
-    .saas-hero p {
-        font-size: 1rem;
-        color: #a7f3d0;
+    .cyber-hero p {
+        color: #94a3b8;
+        font-size: 1.05rem;
+        line-height: 1.7;
         margin: 0;
-        line-height: 1.6;
-        max-width: 800px;
+        max-width: 850px;
     }
 
-    /* ── Interactive Process Stepper ── */
-    .step-header {
+    /* ── Stepper Headings ── */
+    .cyber-step {
         display: flex;
         align-items: center;
         gap: 0.9rem;
-        margin: 2rem 0 0.8rem 0;
+        margin: 2.2rem 0 1rem 0;
         padding-bottom: 0.6rem;
-        border-bottom: 2px solid #e2e8f0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
-    .step-badge {
-        background: linear-gradient(135deg, #059669 0%, #047857 100%);
-        color: #ffffff;
-        width: 32px;
-        height: 32px;
+    .cyber-badge {
+        background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+        color: #03120a;
+        width: 34px;
+        height: 34px;
         border-radius: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 0.9rem;
+        font-family: 'Space Grotesk', sans-serif;
         font-weight: 800;
-        box-shadow: 0 4px 10px rgba(5, 150, 105, 0.3);
+        font-size: 1rem;
+        box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
     }
-    .step-text {
-        font-size: 1.25rem;
-        font-weight: 800;
-        color: #0f172a;
-        letter-spacing: -0.025em;
+    .cyber-step-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: #f8fafc;
+        letter-spacing: -0.02em;
     }
 
-    /* ── Professional Cards ── */
-    .saas-card {
-        background: #ffffff;
-        border: 1px solid #e2e8f0;
+    /* ── Cyber Neon Cards ── */
+    .cyber-card {
+        background: rgba(15, 28, 20, 0.6);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(16, 185, 129, 0.25);
         border-radius: 18px;
-        padding: 1.4rem 1.5rem;
-        box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
-        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 1.5rem 1.6rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         height: 100%;
+        position: relative;
+        overflow: hidden;
     }
-    .saas-card:hover {
-        border-color: #10b981;
-        box-shadow: 0 12px 28px -4px rgba(16, 185, 129, 0.15);
-        transform: translateY(-3px);
+    .cyber-card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; height: 2px;
+        background: linear-gradient(90deg, transparent, #10b981, transparent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
     }
-    .saas-card-label {
-        font-size: 0.72rem;
+    .cyber-card:hover {
+        border-color: #34d399;
+        transform: translateY(-4px);
+        box-shadow: 0 14px 40px rgba(16, 185, 129, 0.15);
+    }
+    .cyber-card:hover::before {
+        opacity: 1;
+    }
+    .cyber-card-lbl {
+        font-size: 0.75rem;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.08em;
-        color: #64748b;
-        margin-bottom: 0.35rem;
+        color: #94a3b8;
+        margin-bottom: 0.4rem;
     }
-    .saas-card-val {
-        font-size: 1.65rem;
-        font-weight: 800;
-        color: #0f172a;
+    .cyber-card-val {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.85rem;
+        font-weight: 700;
+        color: #ffffff;
         letter-spacing: -0.03em;
         line-height: 1.2;
     }
-    .saas-card-sub {
-        font-size: 0.78rem;
+    .cyber-card-sub {
+        font-size: 0.8rem;
         font-weight: 600;
-        color: #059669;
-        margin-top: 0.35rem;
+        color: #34d399;
+        margin-top: 0.4rem;
     }
 
-    /* ── Microclimate Weather Pill ── */
-    .wx-box {
-        background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
-        border: 1px solid #bbf7d0;
+    /* ── Neon Weather Boxes ── */
+    .cyber-wx {
+        background: rgba(8, 20, 14, 0.7);
+        border: 1px solid rgba(16, 185, 129, 0.25);
         border-radius: 16px;
-        padding: 1.2rem;
+        padding: 1.3rem;
         text-align: center;
-        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.06);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        transition: all 0.25s ease;
     }
-    .wx-box-icon { font-size: 1.8rem; margin-bottom: 0.3rem; }
-    .wx-box-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; color: #065f46; letter-spacing: 0.06em; }
-    .wx-box-val { font-size: 1.45rem; font-weight: 800; color: #022c22; margin: 0.2rem 0; }
+    .cyber-wx:hover {
+        border-color: #10b981;
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+    }
+    .cyber-wx-icon { font-size: 2rem; margin-bottom: 0.3rem; }
+    .cyber-wx-lbl { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; color: #94a3b8; letter-spacing: 0.07em; }
+    .cyber-wx-val { font-family: 'Space Grotesk', sans-serif; font-size: 1.6rem; font-weight: 700; color: #f8fafc; margin: 0.2rem 0; }
 
-    /* ── Official Severity Badges ── */
-    .badge-pill {
+    /* ── Glowing Badges ── */
+    .badge-glow {
         display: inline-flex;
         align-items: center;
-        gap: 0.45rem;
-        padding: 0.5rem 1.2rem;
+        gap: 0.5rem;
+        padding: 0.55rem 1.4rem;
         border-radius: 9999px;
-        font-size: 0.82rem;
-        font-weight: 800;
-        letter-spacing: 0.04em;
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
         text-transform: uppercase;
     }
-    .badge-green { background: #dcfce7; color: #166534; border: 1.5px solid #86efac; }
-    .badge-yellow { background: #fef9c3; color: #854d0e; border: 1.5px solid #fde047; }
-    .badge-red { background: #fee2e2; color: #991b1b; border: 1.5px solid #fca5a5; }
-    .badge-purple { background: #f3e8ff; color: #6b21a8; border: 1.5px solid #d8b4fe; }
+    .glow-green { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1.5px solid #10b981; box-shadow: 0 0 15px rgba(16, 185, 129, 0.3); }
+    .glow-yellow { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1.5px solid #f59e0b; box-shadow: 0 0 15px rgba(245, 158, 11, 0.3); }
+    .glow-red { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1.5px solid #ef4444; box-shadow: 0 0 15px rgba(239, 68, 68, 0.3); }
+    .glow-purple { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1.5px solid #a855f7; box-shadow: 0 0 15px rgba(168, 85, 247, 0.3); }
 
-    /* ── Clinical Rx Box ── */
-    .rx-sheet {
-        background: #ffffff;
-        border: 2px dashed #059669;
-        border-radius: 16px;
+    /* ── Terminal Prescription Block ── */
+    .terminal-box {
+        background: #040906;
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-left: 4px solid #10b981;
+        border-radius: 14px;
         padding: 1.6rem;
         font-family: 'JetBrains Mono', monospace;
-        font-size: 0.84rem;
-        line-height: 1.6;
-        color: #1e293b;
-        box-shadow: 0 4px 16px rgba(5, 150, 105, 0.08);
+        font-size: 0.85rem;
+        line-height: 1.65;
+        color: #cbd5e1;
+        box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
     }
 
-    /* ── Action Buttons ── */
+    /* ── Primary Action Buttons ── */
     .stButton > button[kind="primary"] {
-        background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
-        color: #ffffff !important;
+        background: linear-gradient(135deg, #059669 0%, #10b981 100%) !important;
+        color: #020c07 !important;
         border: none !important;
+        font-family: 'Space Grotesk', sans-serif !important;
         font-weight: 700 !important;
-        font-size: 1rem !important;
-        padding: 0.8rem 2rem !important;
+        font-size: 1.05rem !important;
+        padding: 0.85rem 2.2rem !important;
         border-radius: 14px !important;
-        box-shadow: 0 6px 18px rgba(5, 150, 105, 0.35) !important;
+        box-shadow: 0 0 25px rgba(16, 185, 129, 0.4) !important;
         transition: all 0.25s ease !important;
     }
     .stButton > button[kind="primary"]:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 24px rgba(5, 150, 105, 0.45) !important;
+        transform: translateY(-2px) scale(1.02) !important;
+        box-shadow: 0 0 35px rgba(16, 185, 129, 0.6) !important;
     }
+
+    /* ── Quick Chips ── */
+    .stButton > button[kind="secondary"] {
+        background: rgba(16, 185, 129, 0.08) !important;
+        border: 1px solid rgba(16, 185, 129, 0.25) !important;
+        color: #34d399 !important;
+        font-weight: 600 !important;
+        border-radius: 10px !important;
+        transition: all 0.2s ease !important;
+    }
+    .stButton > button[kind="secondary"]:hover {
+        background: rgba(16, 185, 129, 0.2) !important;
+        border-color: #10b981 !important;
+        color: #ffffff !important;
+    }
+
+    /* ── Progress Bar ── */
     .stProgress > div > div > div > div {
-        background: linear-gradient(90deg, #10b981 0%, #047857 100%) !important;
+        background: linear-gradient(90deg, #10b981 0%, #34d399 100%) !important;
         border-radius: 9999px !important;
+        box-shadow: 0 0 10px rgba(16, 185, 129, 0.5) !important;
+    }
+
+    /* ── Dark Input Fields ── */
+    div[data-baseweb="input"] {
+        background-color: rgba(10, 22, 16, 0.8) !important;
+        border-color: rgba(16, 185, 129, 0.3) !important;
+        border-radius: 12px !important;
+    }
+    div[data-baseweb="input"] input {
+        color: #f8fafc !important;
     }
 
     /* ── Footer ── */
-    .saas-footer {
+    .cyber-footer {
         text-align: center;
         padding: 3rem 0 1.5rem 0;
-        margin-top: 4rem;
-        border-top: 1px solid #e2e8f0;
+        margin-top: 4.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
         font-size: 0.8rem;
         color: #64748b;
-        font-weight: 500;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -306,7 +362,7 @@ st.markdown("""
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # Cached Loaders
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-@st.cache_resource(show_spinner="Initializing Deep Learning MobileNetV2 Weights...")
+@st.cache_resource(show_spinner="Initializing MobileNetV2 Neural Engine...")
 def load_cached_model():
     if not MODEL_PATH.exists():
         return None
@@ -326,14 +382,14 @@ def load_class_labels() -> List[str]:
     return DEFAULT_CLASSES
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# Sidebar Navigation & Settings
+# Sidebar Navigation
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 with st.sidebar:
     st.markdown("""
     <div style="text-align: center; padding: 1.4rem 0 0.8rem 0;">
-        <div style="font-size: 2.6rem; margin-bottom: 0.2rem;">🌱</div>
-        <div style="font-size: 1.45rem; font-weight: 800; letter-spacing: -0.035em; color: #34d399 !important;">AgroScan AI</div>
-        <div style="font-size: 0.72rem; font-weight: 700; color: #a7f3d0 !important; letter-spacing: 0.09em; text-transform: uppercase;">Agronomic Intelligence Cloud</div>
+        <div style="font-size: 2.8rem; margin-bottom: 0.3rem;">🌱</div>
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.03em; color: #34d399 !important;">AgroScan AI</div>
+        <div style="font-size: 0.72rem; font-weight: 700; color: #94a3b8 !important; letter-spacing: 0.09em; text-transform: uppercase;">Cyber-Agronomy Cloud</div>
     </div>
     """, unsafe_allow_html=True)
     st.markdown("---")
@@ -353,42 +409,42 @@ with st.sidebar:
 
     st.markdown("---")
     st.markdown('<p style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#34d399 !important; margin-bottom:0.6rem;">Precision Gating Controls</p>', unsafe_allow_html=True)
-    use_tta = st.checkbox("Test-Time Augmentation (TTA)", value=True, help="Evaluates 4 photometric transformations for lighting resilience.")
-    use_foliar_gate = st.checkbox("Foliar Vegetative Gate", value=True, help="Rejects non-plant images automatically via green channel HSV.")
+    use_tta = st.checkbox("Test-Time Augmentation (TTA)", value=True, help="Multi-angle inference for lighting invariance")
+    use_foliar_gate = st.checkbox("Foliar Vegetative Gate", value=True, help="Rejects non-plant images automatically via HSV")
 
     st.markdown("---")
     st.markdown("""
-    <div style="font-size: 0.75rem; color: #cbd5e1 !important; line-height: 1.85;">
-        <div style="font-weight:700; color:#34d399 !important; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.4rem;">Platform Specs</div>
-        <div><strong>Deep Learning:</strong> MobileNetV2</div>
+    <div style="font-size: 0.75rem; color: #94a3b8 !important; line-height: 1.85;">
+        <div style="font-weight:700; color:#34d399 !important; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.4rem;">System Telemetry</div>
+        <div><strong>Neural Engine:</strong> MobileNetV2</div>
         <div><strong>Pathology Library:</strong> 38 Conditions</div>
-        <div><strong>Validation Accuracy:</strong> 89.21% (Top-3: 98.29%)</div>
-        <div><strong>Inference Latency:</strong> ~35ms / image</div>
-        <div style="margin-top:0.9rem; font-size:0.68rem; color:#64748b !important;">AgroScan v3.0 &middot; Production Release</div>
+        <div><strong>Accuracy Benchmark:</strong> 89.21% (Top-3: 98.29%)</div>
+        <div><strong>Inference Speed:</strong> ~35ms</div>
+        <div style="margin-top:0.9rem; font-size:0.68rem; color:#475569 !important;">AgroScan Cyber-Agri v4.0</div>
     </div>
     """, unsafe_allow_html=True)
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# Enterprise Top Bar
+# Top HUD Bar
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 st.markdown("""
-<div class="top-nav-bar">
-    <div class="top-nav-logo">
-        <span>🌱</span> AgroScan AI <span style="font-size:0.78rem; font-weight:600; color:#64748b; background:#f1f5f9; padding:0.25rem 0.65rem; border-radius:8px;">Enterprise Suite</span>
+<div class="hud-bar">
+    <div class="hud-logo">
+        <span>🌱</span> AgroScan AI <span style="font-size:0.75rem; font-weight:600; color:#94a3b8; background:rgba(255,255,255,0.06); padding:0.25rem 0.65rem; border-radius:8px; border:1px solid rgba(255,255,255,0.1);">Command Center</span>
     </div>
-    <div class="top-nav-status">
-        <span class="status-dot"></span> Neural Cloud Engine Online &middot; 38 Classes
+    <div class="hud-status">
+        <span class="pulse-dot"></span> Neural Engine Active &middot; 38 Pathologies
     </div>
 </div>
 """, unsafe_allow_html=True)
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# Hero Banner
+# Cyber Hero Banner
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 st.markdown("""
-<div class="saas-hero">
-    <h1>🌱 AgroScan AI: Ultra-Precision Crop Pathology</h1>
-    <p>Comprehensive agricultural deep learning system. Upload leaf photographs or capture field specimens in real-time. Our neural network classifies diseases across 38 crop pathologies, quantifies foliar necrotic damage, and fuses live microclimate epidemiology for tailored spray treatments.</p>
+<div class="cyber-hero">
+    <h1>🌱 AgroScan AI: Precision Crop Pathology</h1>
+    <p>Upload a leaf photograph or capture live from field cameras. Our deep neural network classifies diseases across 38 crop pathologies, quantifies foliar necrotic damage, and fuses live microclimate epidemiology for tailored spray treatments.</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -403,9 +459,9 @@ if menu == "🔬 Diagnostic Engine":
 
     # Step 1: Specimen Acquisition
     st.markdown("""
-    <div class="step-header">
-        <div class="step-badge">1</div>
-        <div class="step-text">Specimen Acquisition Hub</div>
+    <div class="cyber-step">
+        <div class="cyber-badge">1</div>
+        <div class="cyber-step-title">Specimen Acquisition Hub</div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -448,19 +504,19 @@ if menu == "🔬 Diagnostic Engine":
             st.image(selected_image, caption=f"Active Specimen: {specimen_name}", use_container_width=True)
         else:
             st.markdown("""
-            <div style="background:#ffffff; border:2px dashed #cbd5e1; border-radius:18px; padding:3.8rem 1.8rem; text-align:center; color:#94a3b8; box-shadow:0 4px 16px rgba(0,0,0,0.02);">
+            <div style="background:rgba(15,28,20,0.5); border:2px dashed rgba(16,185,129,0.3); border-radius:18px; padding:3.8rem 1.8rem; text-align:center; color:#64748b;">
                 <div style="font-size:3rem; margin-bottom:0.6rem;">🍃</div>
-                <div style="font-size:1.05rem; font-weight:800; color:#334155;">No Specimen Loaded</div>
-                <div style="font-size:0.82rem; margin-top:0.3rem;">Upload a photo or select a benchmark sample to activate analysis.</div>
+                <div style="font-family:'Space Grotesk',sans-serif; font-size:1.1rem; font-weight:700; color:#f8fafc;">No Specimen Loaded</div>
+                <div style="font-size:0.85rem; margin-top:0.3rem;">Upload a photo or select a benchmark sample to activate analysis.</div>
             </div>
             """, unsafe_allow_html=True)
 
     # Step 2: Location & Microclimate
     if selected_image:
         st.markdown("""
-        <div class="step-header">
-            <div class="step-badge">2</div>
-            <div class="step-text">Farm Location & Live Microclimate Context</div>
+        <div class="cyber-step">
+            <div class="cyber-badge">2</div>
+            <div class="cyber-step-title">Farm Location & Live Microclimate Context</div>
         </div>
         """, unsafe_allow_html=True)
 
@@ -491,28 +547,28 @@ if menu == "🔬 Diagnostic Engine":
 
         weather_data = None
         if city_input and city_input.strip():
-            with st.spinner(f"🛰️ Connecting to live meteorological station for {city_input}..."):
+            with st.spinner(f"Connecting to live meteorological station for {city_input}..."):
                 weather_data = fetch_live_weather(city_input.strip())
 
             if weather_data:
                 st.success(f"📍 **Station Active:** {weather_data['city']} ({weather_data['latitude']:.2f}°N, {weather_data['longitude']:.2f}°E)")
                 w1, w2, w3, w4 = st.columns(4)
                 with w1:
-                    st.markdown(f'<div class="wx-box"><div class="wx-box-icon">🌡️</div><div class="wx-box-label">Ambient Temp</div><div class="wx-box-val">{weather_data["temperature"]}°C</div></div>', unsafe_allow_html=True)
+                    st.markdown(f'<div class="cyber-wx"><div class="cyber-wx-icon">🌡️</div><div class="cyber-wx-lbl">Ambient Temp</div><div class="cyber-wx-val">{weather_data["temperature"]}°C</div></div>', unsafe_allow_html=True)
                 with w2:
-                    st.markdown(f'<div class="wx-box"><div class="wx-box-icon">💧</div><div class="wx-box-label">Relative Humidity</div><div class="wx-box-val">{weather_data["humidity"]}%</div></div>', unsafe_allow_html=True)
+                    st.markdown(f'<div class="cyber-wx"><div class="cyber-wx-icon">💧</div><div class="cyber-wx-lbl">Relative Humidity</div><div class="cyber-wx-val">{weather_data["humidity"]}%</div></div>', unsafe_allow_html=True)
                 with w3:
-                    st.markdown(f'<div class="wx-box"><div class="wx-box-icon">💨</div><div class="wx-box-label">Wind Velocity</div><div class="wx-box-val">{weather_data["wind_speed"]} km/h</div></div>', unsafe_allow_html=True)
+                    st.markdown(f'<div class="cyber-wx"><div class="cyber-wx-icon">💨</div><div class="cyber-wx-lbl">Wind Velocity</div><div class="cyber-wx-val">{weather_data["wind_speed"]} km/h</div></div>', unsafe_allow_html=True)
                 with w4:
-                    st.markdown(f'<div class="wx-box"><div class="wx-box-icon">🌧️</div><div class="wx-box-label">Precipitation</div><div class="wx-box-val">{weather_data["precipitation"]} mm</div></div>', unsafe_allow_html=True)
+                    st.markdown(f'<div class="cyber-wx"><div class="cyber-wx-icon">🌧️</div><div class="cyber-wx-lbl">Precipitation</div><div class="cyber-wx-val">{weather_data["precipitation"]} mm</div></div>', unsafe_allow_html=True)
             else:
                 st.warning(f"Could not connect to meteorological station for '{city_input}'. Please check spelling.")
 
         # Step 3: Run Diagnostics
         st.markdown("""
-        <div class="step-header">
-            <div class="step-badge">3</div>
-            <div class="step-text">Run Deep Learning Pathology Diagnostic</div>
+        <div class="cyber-step">
+            <div class="cyber-badge">3</div>
+            <div class="cyber-step-title">Run Deep Learning Pathology Diagnostic</div>
         </div>
         """, unsafe_allow_html=True)
 
@@ -546,27 +602,27 @@ if menu == "🔬 Diagnostic Engine":
                     # Primary KPI Cards
                     k1, k2, k3, k4 = st.columns(4)
                     with k1:
-                        st.markdown(f'<div class="saas-card"><div class="saas-card-label">Diagnosed Host Crop</div><div class="saas-card-val">{crop_name}</div><div class="saas-card-sub">Botanical Species</div></div>', unsafe_allow_html=True)
+                        st.markdown(f'<div class="cyber-card"><div class="cyber-card-lbl">Diagnosed Host Crop</div><div class="cyber-card-val">{crop_name}</div><div class="cyber-card-sub">Botanical Species</div></div>', unsafe_allow_html=True)
                     with k2:
-                        st.markdown(f'<div class="saas-card"><div class="saas-card-label">Identified Pathology</div><div class="saas-card-val" style="font-size:1.15rem;">{disease_name}</div><div class="saas-card-sub">Primary Classification</div></div>', unsafe_allow_html=True)
+                        st.markdown(f'<div class="cyber-card"><div class="cyber-card-lbl">Identified Pathology</div><div class="cyber-card-val" style="font-size:1.25rem;">{disease_name}</div><div class="cyber-card-sub">Primary Classification</div></div>', unsafe_allow_html=True)
                     with k3:
-                        conf_color = "#059669" if confidence > 0.8 else ("#d97706" if confidence > 0.5 else "#dc2626")
-                        st.markdown(f'<div class="saas-card"><div class="saas-card-label">Inference Certainty</div><div class="saas-card-val" style="color:{conf_color};">{confidence*100:.1f}%</div><div class="saas-card-sub">Softmax Confidence</div></div>', unsafe_allow_html=True)
+                        conf_color = "#34d399" if confidence > 0.8 else ("#fbbf24" if confidence > 0.5 else "#f87171")
+                        st.markdown(f'<div class="cyber-card"><div class="cyber-card-lbl">Inference Certainty</div><div class="cyber-card-val" style="color:{conf_color};">{confidence*100:.1f}%</div><div class="cyber-card-sub">Softmax Confidence</div></div>', unsafe_allow_html=True)
                     with k4:
-                        dmg_color = "#059669" if damage["percentage"] < 10 else ("#d97706" if damage["percentage"] < 30 else "#dc2626")
-                        st.markdown(f'<div class="saas-card"><div class="saas-card-label">Foliar Necrotic Area</div><div class="saas-card-val" style="color:{dmg_color};">{damage["percentage"]}%</div><div class="saas-card-sub">{damage["stage"]}</div></div>', unsafe_allow_html=True)
+                        dmg_color = "#34d399" if damage["percentage"] < 10 else ("#fbbf24" if damage["percentage"] < 30 else "#f87171")
+                        st.markdown(f'<div class="cyber-card"><div class="cyber-card-lbl">Foliar Necrotic Area</div><div class="cyber-card-val" style="color:{dmg_color};">{damage["percentage"]}%</div><div class="cyber-card-sub">{damage["stage"]}</div></div>', unsafe_allow_html=True)
 
                     # Severity Banner
-                    st.markdown("<div style='margin:1.2rem 0;'>", unsafe_allow_html=True)
+                    st.markdown("<div style='margin:1.4rem 0;'>", unsafe_allow_html=True)
                     if status == "NOVEL_OR_MIXED_PATHOLOGY":
-                        st.markdown('<span class="badge-pill badge-purple">⚠️ NOVEL / ATYPICAL PATHOLOGY DETECTED</span>', unsafe_allow_html=True)
+                        st.markdown('<span class="badge-glow glow-purple">⚠️ NOVEL / ATYPICAL PATHOLOGY DETECTED</span>', unsafe_allow_html=True)
                         st.warning(result["status_note"])
                     elif "healthy" in pred_class.lower():
-                        st.markdown('<span class="badge-pill badge-green">✅ HEALTHY VIGOROUS FOLIAGE</span>', unsafe_allow_html=True)
+                        st.markdown('<span class="badge-glow glow-green">✅ HEALTHY VIGOROUS FOLIAGE</span>', unsafe_allow_html=True)
                     elif severity.lower() in ["severe", "severe / critical", "high"]:
-                        st.markdown(f'<span class="badge-pill badge-red">🚨 CRITICAL HIGH-RISK PATHOLOGY ({severity.upper()})</span>', unsafe_allow_html=True)
+                        st.markdown(f'<span class="badge-glow glow-red">🚨 CRITICAL HIGH-RISK PATHOLOGY ({severity.upper()})</span>', unsafe_allow_html=True)
                     else:
-                        st.markdown(f'<span class="badge-pill badge-yellow">⚡ MODERATE SEVERITY PATHOLOGY ({severity.upper()})</span>', unsafe_allow_html=True)
+                        st.markdown(f'<span class="badge-glow glow-yellow">⚡ MODERATE SEVERITY PATHOLOGY ({severity.upper()})</span>', unsafe_allow_html=True)
                     st.markdown("</div>", unsafe_allow_html=True)
 
                     # Climate Fusion Report
@@ -584,16 +640,16 @@ if menu == "🔬 Diagnostic Engine":
                             st.caption(f"Calculated from live station data at **{wd['city']}** fused with visual foliar damage.")
 
                             risk = fusion_data["climatic_risk_index"]
-                            risk_col = "#059669" if risk < 40 else ("#d97706" if risk < 65 else "#dc2626")
+                            risk_col = "#34d399" if risk < 40 else ("#fbbf24" if risk < 65 else "#f87171")
                             risk_txt = "LOW SPRAY URGENCY" if risk < 40 else ("MODERATE SPREAD RISK" if risk < 65 else "HIGH OUTBREAK RISK")
 
                             f1, f2 = st.columns(2, gap="large")
                             with f1:
                                 st.markdown(f"""
-                                <div class="saas-card" style="border-left: 5px solid {risk_col};">
-                                    <div class="saas-card-label">Climate Outbreak Risk Index</div>
-                                    <div class="saas-card-val" style="color:{risk_col};">{risk}% &middot; {risk_txt}</div>
-                                    <div style="font-size:0.8rem; color:#64748b; margin-top:0.3rem;">Spore germination & canopy colonization favorability</div>
+                                <div class="cyber-card" style="border-left: 5px solid {risk_col};">
+                                    <div class="cyber-card-lbl">Climate Outbreak Risk Index</div>
+                                    <div class="cyber-card-val" style="color:{risk_col};">{risk}% &middot; {risk_txt}</div>
+                                    <div style="font-size:0.8rem; color:#94a3b8; margin-top:0.3rem;">Spore germination & canopy colonization favorability</div>
                                 </div>
                                 """, unsafe_allow_html=True)
                                 st.metric("Estimated Infection Onset", fusion_data["estimated_onset_time"])
@@ -712,7 +768,7 @@ if menu == "🔬 Diagnostic Engine":
                             "Certified by AgroScan AI MobileNetV2 Deep Learning Engine.\n"
                             "======================================================="
                         )
-                        st.markdown(f'<div class="rx-sheet"><pre>{rx_text}</pre></div>', unsafe_allow_html=True)
+                        st.markdown(f'<div class="terminal-box"><pre style="color:#a7f3d0; margin:0;">{rx_text}</pre></div>', unsafe_allow_html=True)
                         st.download_button(
                             "📥 Download Clinical Agronomic Prescription (.txt)",
                             data=rx_text,
@@ -763,24 +819,24 @@ if menu == "🔬 Diagnostic Engine":
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 elif menu == "🔄 Continual Learning & Retrain":
     st.markdown("""
-    <div class="step-header">
-        <div class="step-badge">🔄</div>
-        <div class="step-text">Continual Learning & Model Self-Evolution Hub</div>
+    <div class="cyber-step">
+        <div class="cyber-badge">🔄</div>
+        <div class="cyber-step-title">Continual Learning & Model Self-Evolution Hub</div>
     </div>
     """, unsafe_allow_html=True)
-    st.markdown('<p style="color:#64748b; font-size:0.9rem;">Every confirmed or corrected specimen accumulates here. Fine-tune your deep learning model on new field data with one click to permanently increase prediction accuracy over time.</p>', unsafe_allow_html=True)
+    st.markdown('<p style="color:#94a3b8; font-size:0.95rem;">Every confirmed or corrected specimen accumulates here. Fine-tune your deep learning model on new field data with one click to permanently increase prediction accuracy over time.</p>', unsafe_allow_html=True)
 
     stats = get_continual_learning_stats()
 
     m1, m2, m3, m4 = st.columns(4)
     with m1:
-        st.markdown(f'<div class="saas-card"><div class="saas-card-label">Total Field Samples</div><div class="saas-card-val">{stats["total_samples"]}</div><div class="saas-card-sub">Accumulated in DB</div></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="cyber-card"><div class="cyber-card-lbl">Total Field Samples</div><div class="cyber-card-val">{stats["total_samples"]}</div><div class="cyber-card-sub">Accumulated in DB</div></div>', unsafe_allow_html=True)
     with m2:
-        st.markdown(f'<div class="saas-card"><div class="saas-card-label">Pending Fine-Tuning</div><div class="saas-card-val" style="color:#d97706;">{stats["pending_retrain"]}</div><div class="saas-card-sub">Awaiting Batch</div></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="cyber-card"><div class="cyber-card-lbl">Pending Fine-Tuning</div><div class="cyber-card-val" style="color:#fbbf24;">{stats["pending_retrain"]}</div><div class="cyber-card-sub">Awaiting Batch</div></div>', unsafe_allow_html=True)
     with m3:
-        st.markdown(f'<div class="saas-card"><div class="saas-card-label">Verified Correct</div><div class="saas-card-val" style="color:#059669;">{stats["confirmed_count"]}</div><div class="saas-card-sub">Ground Truth Matches</div></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="cyber-card"><div class="cyber-card-lbl">Verified Correct</div><div class="cyber-card-val" style="color:#34d399;">{stats["confirmed_count"]}</div><div class="cyber-card-sub">Ground Truth Matches</div></div>', unsafe_allow_html=True)
     with m4:
-        st.markdown(f'<div class="saas-card"><div class="saas-card-label">Expert Corrections</div><div class="saas-card-val" style="color:#2563eb;">{stats["corrected_count"]}</div><div class="saas-card-sub">Edge Case Adjustments</div></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="cyber-card"><div class="cyber-card-lbl">Expert Corrections</div><div class="cyber-card-val" style="color:#60a5fa;">{stats["corrected_count"]}</div><div class="cyber-card-sub">Edge Case Adjustments</div></div>', unsafe_allow_html=True)
 
     st.markdown("---")
     st.markdown("### ⚡ Execute Incremental Fine-Tuning")
@@ -828,12 +884,12 @@ elif menu == "🔄 Continual Learning & Retrain":
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 elif menu == "💊 Spray & Tank Calculator":
     st.markdown("""
-    <div class="step-header">
-        <div class="step-badge">💊</div>
-        <div class="step-text">Precision Chemical Dosage & Tank Mixing Calculator</div>
+    <div class="cyber-step">
+        <div class="cyber-badge">💊</div>
+        <div class="cyber-step-title">Precision Chemical Dosage & Tank Mixing Calculator</div>
     </div>
     """, unsafe_allow_html=True)
-    st.markdown('<p style="color:#64748b; font-size:0.9rem;">Calculate exact water volumes, chemical active ingredient dosage, and knapsack tank refills tailored to your plot size to prevent chemical waste and crop toxicity.</p>', unsafe_allow_html=True)
+    st.markdown('<p style="color:#94a3b8; font-size:0.95rem;">Calculate exact water volumes, chemical active ingredient dosage, and knapsack tank refills tailored to your plot size to prevent chemical waste and crop toxicity.</p>', unsafe_allow_html=True)
 
     c1, c2 = st.columns(2, gap="large")
 
@@ -867,20 +923,20 @@ elif menu == "💊 Spray & Tank Calculator":
 
     with c2:
         st.markdown(f"""
-        <div class="saas-card" style="border-left: 5px solid #059669; margin-bottom: 1rem;">
-            <div class="saas-card-label">Total Spray Water Volume</div>
-            <div class="saas-card-val" style="color:#059669;">{water} Liters</div>
-            <div class="saas-card-sub">Calibrated for {area} {unit} of {target_crop}</div>
+        <div class="cyber-card" style="border-left: 5px solid #10b981; margin-bottom: 1rem;">
+            <div class="cyber-card-lbl">Total Spray Water Volume</div>
+            <div class="cyber-card-val" style="color:#34d399;">{water} Liters</div>
+            <div class="cyber-card-sub">Calibrated for {area} {unit} of {target_crop}</div>
         </div>
-        <div class="saas-card" style="border-left: 5px solid #0891b2; margin-bottom: 1rem;">
-            <div class="saas-card-label">Total Active Chemical Dosage</div>
-            <div class="saas-card-val" style="color:#0891b2;">{chem_desc}</div>
-            <div class="saas-card-sub">Recommended concentration: ~2.5–3g per Liter</div>
+        <div class="cyber-card" style="border-left: 5px solid #06b6d4; margin-bottom: 1rem;">
+            <div class="cyber-card-lbl">Total Active Chemical Dosage</div>
+            <div class="cyber-card-val" style="color:#22d3ee;">{chem_desc}</div>
+            <div class="cyber-card-sub">Recommended concentration: ~2.5–3g per Liter</div>
         </div>
-        <div class="saas-card" style="border-left: 5px solid #d97706;">
-            <div class="saas-card-label">Sprayer Tank Refills Required</div>
-            <div class="saas-card-val" style="color:#d97706;">{refills} Tanks ({cap}L each)</div>
-            <div class="saas-card-sub">Add ~{round((water / refills) * 0.005 * 1000, 1)}g chemical per refill load</div>
+        <div class="cyber-card" style="border-left: 5px solid #f59e0b;">
+            <div class="cyber-card-lbl">Sprayer Tank Refills Required</div>
+            <div class="cyber-card-val" style="color:#fbbf24;">{refills} Tanks ({cap}L each)</div>
+            <div class="cyber-card-sub">Add ~{round((water / refills) * 0.005 * 1000, 1)}g chemical per refill load</div>
         </div>
         """, unsafe_allow_html=True)
 
@@ -889,12 +945,12 @@ elif menu == "💊 Spray & Tank Calculator":
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 elif menu == "🌦️ Live Weather Advisory":
     st.markdown("""
-    <div class="step-header">
-        <div class="step-badge">🌦️</div>
-        <div class="step-text">Agro-Climatic Spray Safety & Weather Advisory</div>
+    <div class="cyber-step">
+        <div class="cyber-badge">🌦️</div>
+        <div class="cyber-step-title">Agro-Climatic Spray Safety & Weather Advisory</div>
     </div>
     """, unsafe_allow_html=True)
-    st.markdown('<p style="color:#64748b; font-size:0.9rem;">Fungicide and bio-pesticide efficacy depends heavily on wind drift, foliage moisture, and rainfast windows. Enter your city for real-time spray alerts.</p>', unsafe_allow_html=True)
+    st.markdown('<p style="color:#94a3b8; font-size:0.95rem;">Fungicide and bio-pesticide efficacy depends heavily on wind drift, foliage moisture, and rainfast windows. Enter your city for real-time spray alerts.</p>', unsafe_allow_html=True)
 
     spray_city = st.text_input("Enter farm city for live microclimate advisory:", placeholder="e.g. Ludhiana, Nashik, Jaipur, Coimbatore")
 
@@ -914,29 +970,29 @@ elif menu == "🌦️ Live Weather Advisory":
         st.success(f"📍 **Station Active:** {live_w['city']} &middot; Verified live")
 
     t_ok = 18 <= temp <= 28
-    t_col = "#059669" if t_ok else "#d97706"
+    t_col = "#34d399" if t_ok else "#fbbf24"
     t_st = "Optimal (18–28°C)" if t_ok else ("Too Hot — Spray at dawn" if temp > 28 else "Too Cold — Delay spray")
 
     w_ok = wind <= 10
-    w_col = "#059669" if w_ok else ("#d97706" if wind <= 20 else "#dc2626")
+    w_col = "#34d399" if w_ok else ("#fbbf24" if wind <= 20 else "#f87171")
     w_st = "Safe — Low Drift" if w_ok else ("Moderate Drift Risk" if wind <= 20 else "Stop — High Drift")
 
-    h_col = "#d97706" if hum >= 70 else "#059669"
+    h_col = "#fbbf24" if hum >= 70 else "#34d399"
     h_st = "High Outbreak Risk" if hum >= 70 else ("Low Spore Pressure" if hum < 55 else "Watch Closely")
 
     p_ok = prec < 1.0
-    p_col = "#059669" if p_ok else "#dc2626"
+    p_col = "#34d399" if p_ok else "#f87171"
     p_st = "Safe Rainfast Window" if p_ok else "Rain Washing Out Chemicals"
 
     w1, w2, w3, w4 = st.columns(4)
     with w1:
-        st.markdown(f'<div class="wx-box"><div class="wx-box-icon">🌡️</div><div class="wx-box-label">Temperature</div><div class="wx-box-val" style="color:{t_col};">{temp}°C</div><div style="font-size:0.75rem; color:{t_col}; font-weight:700;">{t_st}</div></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="cyber-wx"><div class="cyber-wx-icon">🌡️</div><div class="cyber-wx-lbl">Temperature</div><div class="cyber-wx-val" style="color:{t_col};">{temp}°C</div><div style="font-size:0.75rem; color:{t_col}; font-weight:700;">{t_st}</div></div>', unsafe_allow_html=True)
     with w2:
-        st.markdown(f'<div class="wx-box"><div class="wx-box-icon">💨</div><div class="wx-box-label">Wind Velocity</div><div class="wx-box-val" style="color:{w_col};">{wind} km/h</div><div style="font-size:0.75rem; color:{w_col}; font-weight:700;">{w_st}</div></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="cyber-wx"><div class="cyber-wx-icon">💨</div><div class="cyber-wx-lbl">Wind Velocity</div><div class="cyber-wx-val" style="color:{w_col};">{wind} km/h</div><div style="font-size:0.75rem; color:{w_col}; font-weight:700;">{w_st}</div></div>', unsafe_allow_html=True)
     with w3:
-        st.markdown(f'<div class="wx-box"><div class="wx-box-icon">💧</div><div class="wx-box-label">Relative Humidity</div><div class="wx-box-val" style="color:{h_col};">{hum}%</div><div style="font-size:0.75rem; color:{h_col}; font-weight:700;">{h_st}</div></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="cyber-wx"><div class="cyber-wx-icon">💧</div><div class="cyber-wx-lbl">Relative Humidity</div><div class="cyber-wx-val" style="color:{h_col};">{hum}%</div><div style="font-size:0.75rem; color:{h_col}; font-weight:700;">{h_st}</div></div>', unsafe_allow_html=True)
     with w4:
-        st.markdown(f'<div class="wx-box"><div class="wx-box-icon">🌧️</div><div class="wx-box-label">Precipitation</div><div class="wx-box-val" style="color:{p_col};">{prec} mm</div><div style="font-size:0.75rem; color:{p_col}; font-weight:700;">{p_st}</div></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="cyber-wx"><div class="cyber-wx-icon">🌧️</div><div class="cyber-wx-lbl">Precipitation</div><div class="cyber-wx-val" style="color:{p_col};">{prec} mm</div><div style="font-size:0.75rem; color:{p_col}; font-weight:700;">{p_st}</div></div>', unsafe_allow_html=True)
 
     st.markdown("---")
 
@@ -955,22 +1011,22 @@ elif menu == "🌦️ Live Weather Advisory":
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 elif menu == "📊 Model Analytics & XAI":
     st.markdown("""
-    <div class="step-header">
-        <div class="step-badge">📊</div>
-        <div class="step-text">Deep Learning Architecture & Quantitative Validation</div>
+    <div class="cyber-step">
+        <div class="cyber-badge">📊</div>
+        <div class="cyber-step-title">Deep Learning Architecture & Quantitative Validation</div>
     </div>
     """, unsafe_allow_html=True)
-    st.markdown('<p style="color:#64748b; font-size:0.9rem;">Rigorous empirical validation benchmarks for the trained MobileNetV2 Transfer Learning Model across all 38 categories.</p>', unsafe_allow_html=True)
+    st.markdown('<p style="color:#94a3b8; font-size:0.95rem;">Rigorous empirical validation benchmarks for the trained MobileNetV2 Transfer Learning Model across all 38 categories.</p>', unsafe_allow_html=True)
 
     s1, s2, s3, s4 = st.columns(4)
     with s1:
-        st.markdown('<div class="saas-card"><div class="saas-card-label">Base Architecture</div><div class="saas-card-val" style="font-size:1.2rem;">MobileNetV2</div><div class="saas-card-sub">Depthwise Separable Convolutions</div></div>', unsafe_allow_html=True)
+        st.markdown('<div class="cyber-card"><div class="cyber-card-lbl">Base Architecture</div><div class="cyber-card-val" style="font-size:1.3rem;">MobileNetV2</div><div class="cyber-card-sub">Depthwise Convolutions</div></div>', unsafe_allow_html=True)
     with s2:
-        st.markdown('<div class="saas-card"><div class="saas-card-label">Total Parameters</div><div class="saas-card-val">2.60M</div><div class="saas-card-sub">Lightweight Mobile Engine</div></div>', unsafe_allow_html=True)
+        st.markdown('<div class="cyber-card"><div class="cyber-card-lbl">Total Parameters</div><div class="cyber-card-val">2.60M</div><div class="cyber-card-sub">Lightweight Mobile Engine</div></div>', unsafe_allow_html=True)
     with s3:
-        st.markdown('<div class="saas-card"><div class="saas-card-label">Top-1 Accuracy</div><div class="saas-card-val" style="color:#059669;">89.21%</div><div class="saas-card-sub">Holdout Validation</div></div>', unsafe_allow_html=True)
+        st.markdown('<div class="cyber-card"><div class="cyber-card-lbl">Top-1 Accuracy</div><div class="cyber-card-val" style="color:#34d399;">89.21%</div><div class="cyber-card-sub">Holdout Validation</div></div>', unsafe_allow_html=True)
     with s4:
-        st.markdown('<div class="saas-card"><div class="saas-card-label">Top-3 Accuracy</div><div class="saas-card-val" style="color:#059669;">98.29%</div><div class="saas-card-sub">Clinical Differential</div></div>', unsafe_allow_html=True)
+        st.markdown('<div class="cyber-card"><div class="cyber-card-lbl">Top-3 Accuracy</div><div class="cyber-card-val" style="color:#34d399;">98.29%</div><div class="cyber-card-sub">Clinical Differential</div></div>', unsafe_allow_html=True)
 
     st.markdown("---")
 
@@ -1002,12 +1058,12 @@ elif menu == "📊 Model Analytics & XAI":
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 elif menu == "📖 38-Class Disease Library":
     st.markdown("""
-    <div class="step-header">
-        <div class="step-badge">📖</div>
-        <div class="step-text">Comprehensive Agricultural Pathology Encyclopedia</div>
+    <div class="cyber-step">
+        <div class="cyber-badge">📖</div>
+        <div class="cyber-step-title">Comprehensive Agricultural Pathology Encyclopedia</div>
     </div>
     """, unsafe_allow_html=True)
-    st.markdown('<p style="color:#64748b; font-size:0.9rem;">Browse etiology, visual symptoms, organic biocontrols, and registered chemical fungicides across all 38 categories.</p>', unsafe_allow_html=True)
+    st.markdown('<p style="color:#94a3b8; font-size:0.95rem;">Browse etiology, visual symptoms, organic biocontrols, and registered chemical fungicides across all 38 categories.</p>', unsafe_allow_html=True)
 
     db = load_disease_database()
     crops = sorted(set(v["crop"] for v in db.values()))
@@ -1015,11 +1071,11 @@ elif menu == "📖 38-Class Disease Library":
     items = {k: v for k, v in db.items() if filt == "All Crops" or v["crop"] == filt}
 
     for key, d in items.items():
-        sev_badge = "badge-red" if d["severity"].lower() in ["severe", "high", "severe / critical"] else ("badge-yellow" if d["severity"].lower() == "moderate" else "badge-green")
+        sev_badge = "glow-red" if d["severity"].lower() in ["severe", "high", "severe / critical"] else ("glow-yellow" if d["severity"].lower() == "moderate" else "glow-green")
         with st.expander(f"🌿 {d['crop']} — {d['disease_name']}"):
             ec1, ec2 = st.columns(2)
             with ec1:
-                st.markdown(f'<span class="badge-pill {sev_badge}">{d["severity"].upper()} SEVERITY</span>', unsafe_allow_html=True)
+                st.markdown(f'<span class="badge-glow {sev_badge}">{d["severity"].upper()} SEVERITY</span>', unsafe_allow_html=True)
                 st.markdown(f"\n**Pathogen Cause:** {d['cause']}")
                 st.markdown(f"**Diagnostic Symptoms:** {d['symptoms']}")
                 st.markdown(f"**Favorable Micro-Climate:** {d['favorable_conditions']}")
@@ -1032,11 +1088,11 @@ elif menu == "📖 38-Class Disease Library":
                     st.markdown(f"- {c}")
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# Global SaaS Footer
+# Global Cyber Footer
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 st.markdown("""
-<div class="saas-footer">
-    <strong>AgroScan AI Enterprise v3.0</strong> &middot; Precision Crop Pathology & Climate-Fused Agronomic Suite<br>
+<div class="cyber-footer">
+    <strong>AgroScan AI &middot; Cyber-Agronomy Command Center v4.0</strong><br>
     Deep Learning Engine: MobileNetV2 (38 Classes) &middot; Live Satellite Ingestion &middot; CSE276 Project
 </div>
 """, unsafe_allow_html=True)
