@@ -1,3 +1,8 @@
+# Archives
+*.zip
+extracted_submission/
+submission_staging/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -11,6 +16,7 @@ env/
 # Large training datasets (do not push gigabytes to GitHub)
 data/dataset/
 data/balanced_dataset/
+data/plantvillage_git_temp/
 
 # Cloudflare binary
 cloudflared.exe
